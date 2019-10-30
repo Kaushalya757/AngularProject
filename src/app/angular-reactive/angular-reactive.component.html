@@ -1,0 +1,43 @@
+<p>angular-reactive works!</p>
+<div class="container">
+    <h1>Form Array</h1>
+    <form [formGroup]="formSignup" (ngSubmit)="onFromSubmit()">
+     <div formGroupName="userDatails"> <!--example of nested form group  -->
+        <div class="form-group pt-3">
+            <input type="text" placeholder="name" formControlName="name" class="form-control" autocomplete="null">
+        </div>
+        <span *ngIf="!formSignup.get('userDatails.name').valid && formSignup.get('userDatails.name').touched " class="text-danger">Please fill this field </span>
+        <div class="form-group">
+            <input type="text" placeholder="Address" formControlName="Address" class="form-control" autocomplete="null">
+        </div>
+        <span *ngIf="!formSignup.get('userDatails.Address').valid && formSignup.get('userDatails.Address').touched " class="text-danger">Please fill this field </span>
+    </div><!--example of nested form group  -->
+        <div class="form-group">
+            <input type="text" placeholder="email" formControlName="email" class="form-control" autocomplete="null">
+        </div>
+        <span *ngIf="!formSignup.get('email').valid && formSignup.get('email').touched " class="text-danger">Please fill this field </span>
+
+        <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="course">
+                  <option>html</option>
+                  <option>js</option>
+                  <option>php</option>
+                </select>
+              </div>
+        <div class="radio" *ngFor="let gender of genders">
+                <label for="">
+                    <input type="radio" formControlName="gender" [value]='gender'>{{ gender }}
+                </label>
+            </div>
+            <span *ngIf="!formSignup.get('gender').valid  && formSignup.get('gender').touched" class="text-danger">Please select your Gender</span>
+            
+        <!-- formArray -->
+        <div class="form-group" formArrayName="hobbies">
+            <div *ngFor="let data of formSignup.get('hobbies').controls; index as formdata">
+                <input type="text" class="form-control mt-2" placeholder="add skills" formControlName="{{ formdata }}">
+            </div>
+            <button class="btn btn-outline-secondary add1 mt-2" (click)="onArray()">+ Add hobbies</button>
+        </div>
+        <button class="btn btn-primary" type="submit">submit</button>
+    </form>
+</div>

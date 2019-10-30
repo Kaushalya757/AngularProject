@@ -1,0 +1,67 @@
+<p>pagelink works! error</p>
+<p> {{ successmsg }}</p>
+
+<!-- <hr>
+<div class="container-fluid">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+    </li>
+  </ul>
+</div> -->
+<!-- <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let page of dataHolder">
+            <td>{{ page.url }}</td>
+            <td>{{ page.id }}</td>
+            <td>{{ page.node_id }}</td>
+          </tr>
+          
+        </tbody>
+      </table> -->
+      
+     
+<div class="container pt-3">
+        <h3>Http Data</h3>
+        <div class="container">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">name</th>
+                    <th scope="col">username</th>
+                    <th scope="col">email</th>
+                    <th scope="col">phone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of httpData">
+                   <td>{{ data.name}}</td>
+                    <td>{{ data.username}}</td>
+                    <td>{{ data.email }}</td>
+                    <td>{{ data.phone}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        </div>
+
+        <!-- <p>
+            The list below shows all of the accounts who have access the production.Here you can edit a 
+            users privilages by changing the User Type.You can also change the department a user is part of 
+            by selecting an option from the dropdown menu.The colour indicates the account status.  
+
+        </p> -->

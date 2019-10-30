@@ -1,0 +1,35 @@
+<div class="container">
+    <h1>{{ dynamicColor }}</h1>
+    <!-- <p [ngStyle]="{background-color:getColor()}">{{ colorStyle }}</p> -->
+    <p [ngStyle]="{backgroundColor: getColor()}">{{ 'server' }} with ID {{ serverId }} is {{ getServerStatus() }}</p>
+    <!-- <p>{{ dataCheck }}</p> -->
+
+<p [ngStyle]="{backgroundColor: getLoadInfo()}"> {{ dataload }} </p>
+<p [ngClass]="{online:serverStatus ==='online'}"> {{ dataload }} </p>
+<!-- <p [ngStyle]="{backgroundColor: getColor()}"> {{ 'server' }} with ID {{ serverStatus }} </p> -->
+
+<!-- loop -->
+<button class="btn btn-primary"  (click)="onToggleDetail()">Display details</button>
+<p *ngIf="showSecret">secret password=tuna</p>
+<div *ngFor="let logItem of log"
+[ngStyle]="{backgroundColor:logItem >= 5 ? 'brown' : 'green'}">{{ logItem }}</div> 
+
+<!-- loop  -->
+<br>
+<br>
+<p>{{ uuName }}</p>
+</div>
+
+<br>
+<br>
+<br>
+<!-- button with if imppppppppppppppppppppppp -->
+<!-- <button class="btn btn-primary"  (click)="showSecret = !showSecret">Display details</button>
+<p *ngIf="showSecret">sdddas</p> -->
+<table class="col-4 border my-2" >
+    <tbody>
+    <tr *ngFor="let data of productName" class="">
+        <td class="text-danger">{{ data.name}}</td>
+        <td class="text-info">{{ data.id}}</td>
+        </tr></tbody>
+</table>

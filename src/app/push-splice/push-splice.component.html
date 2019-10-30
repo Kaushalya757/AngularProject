@@ -1,0 +1,66 @@
+<p>push-splice works!</p>
+<hr>
+
+<div class="container py-4">
+        <!-- <h1 class=" pt-2">Market Product</h1>
+        <div class="row pb-5">
+            <input type="text" name="" class="form-control col-4">
+            <button class="btn btn-success col-2" >Add Product</button>
+        </div> -->
+
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <input type="text" class="form-control" #uname >
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" (click)="onCreate(uname)">Create User</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-danger" (click)="onRemove()">Remove</button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-10">
+            <table class="table table-border">
+                <thead class="thead-light">
+                  <tr>
+                    <th>User Name</th>
+                    <th>Items</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users;Index as k">
+                    <td>{{ user.name }}</td>
+                    <td><button class="btn btn-danger" (click)="removeUser(k)">Remove</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div> 
+</div>
+
+<div class="container pt-3">
+<h3>Http Data</h3>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">name</th>
+            <th scope="col">username</th>
+            <th scope="col">email</th>
+            <th scope="col">phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of httpData">
+           <td>{{ data.name}}</td>
+            <td>{{ data.username}}</td>
+            <td>{{ data.email }}</td>
+            <td>{{ data.phone}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>

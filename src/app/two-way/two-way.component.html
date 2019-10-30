@@ -1,0 +1,145 @@
+
+<!-- reactive forms home work-->
+<div class="container">
+        <h1>{{ myData }}</h1>
+        <hr>
+    <div class="row">
+        <div class="col">
+            <h4 class=''>interpolation,event</h4>
+            <button type="button" (click)="onclick()">click here</button>
+            <p>{{ name }}</p>
+        </div>
+        <div class="col">
+                <h4>Please submit your form</h4>
+                <button type="button" class="btn-primary px-3" (click)=submitdata()>Save</button>
+                <p>{{ addData }}</p>
+        </div>
+        <div class="col">
+            <h4 class=''>property binding</h4>
+        <button class='btn btn-info' [disabled]='apper'>disable</button>
+        <a [href]="Link" class="pl-3">click here</a>
+        </div>
+
+        <div class="col">
+            <h5 class=''>combind interpolation,property,event</h5>
+            <button class="btn btn-danger" [disabled]="valueShow" (click)='commend()'>Propert bind Commend</button><br><br>
+            <p class="text-sucess">{{ success }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" (input)="onsubmit($event)">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">email</label>
+                <input type="text" class="form-control" (input)="onEmail($event)">
+            </div>
+            <div class="form-group">
+                <label for="number">Mobile number</label>
+                <input type="number" class="form-control" (input)="onNumber($event)">
+            </div>
+        </div>        
+        <div class="col-6">
+            <h6>Your enter data</h6>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>{{ submit }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ mobile }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-info" (click)='onDataSubmit()'>Submit</button>
+                <p class="text-sucess">{{ formMsg}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- <div [ngIf]='logInId'></div> -->
+    <!-- [disabled]="!dynamicdata" this typeScript code recognised by angular-->
+    <div class="row">
+        <div class="col">
+                <h5>combine property dynamically</h5>
+                <button class='btn btn-danger' [disabled]="!dynamicdata" (click)='whenclicked()'>add server</button>
+                <p>{{ dataStatus }} </p>
+                
+        </div>
+        <div class="col bg-secondary">
+            <h3>NgIf (simple)</h3>
+            <div *ngIf='login'>
+                <p class="text-warning">Your are enter successfully</p>
+            </div>
+            <div class="ml-auto">
+                <div *ngIf='mycheck; else myResult'>
+                    <p>answer Yes</p>
+                </div>
+                <ng-template #myResult>
+                    <p>answer No</p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-3 bg-info">
+        <div class="col-6 text-center">
+            <h4>Ng with else</h4>   
+            <div *ngIf='condition; else procede'>
+                <p class="text-success">Your are enter successfully</p>
+            </div>
+            <ng-template #procede>
+                <p class="text-danger">Not to do</p>
+            </ng-template>
+        </div>
+        <div class="col-6 text-center ">
+            <input type="radio" name="radio1" (click)="changeValue(true)">True
+            <input type="radio" name="radio1" (click)="changeValue(false)">False
+            <div *ngIf='isValid'>
+                <h5 class="text-warning">This is valid data</h5>
+            </div>
+            <div *ngIf='!isValid'>
+                <h5 class="text-danger">This is not valid data</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row bg-dark text-white py-2">
+        <div class="col">
+                <input type="radio" name="radio1" (click)="add(true)">True
+                <input type="radio" name="radio1" (click)="add(false)">False
+                <div *ngIf="comment">
+                        <p>Your Admission form is accepted by collage</p>
+                    </div>
+                    <div *ngIf="!comment">
+                        <p>You are not eligible for our collage!</p>
+                    </div>     
+            </div>
+    </div>
+    <h2 class="text-center pt-3">NgFor</h2>
+            <div class="row bg-secondary">
+                <div class="col">
+                        <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Class</th>
+                                    <th scope="col">Roll no</th>
+                                    <th scope="col">Addrss</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let info of ngFormData">
+                                    <td>{{ info.name }}</td>
+                                    <td>{{ info.class }}</td>
+                                    <td>{{ info.roll }}</td>
+                                    <td>{{ info.address }}</td>
+                                  </tr>                                  
+                                </tbody>
+                              </table>
+                </div>
+            </div>
+            <p class="bg-danger text-white my-2 px-3"> This is the Id => {{ nameid }}</p>
+</div>

@@ -1,0 +1,24 @@
+<!-- <p [ngStyle]="{backgrondColor: myColor()}"> {{ capacity }}dffdf</p> -->
+<p>ng-switch work</p>
+<button type="text" (click)="myeve()">cleck here to get data</button>
+<p>{{ capacity  }}</p>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let myurl of secondpage">
+            <td>{{myurl.public }}</td>
+            <td>{{myurl.created_at }}</td>
+            <td>{{myurl.updated_at }}</td>
+            <td>{{myurl.comments }}</td>
+        </tbody>
+      </table>
+</div>

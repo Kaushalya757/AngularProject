@@ -1,0 +1,15 @@
+<p>card2 works!</p>
+<div class="container">
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body px-0">
+                <ng-container *ngFor="let m of products">
+                product name:<strong class="text-danger">{{ m.name}}</strong>
+                product id:<strong class="text-danger">{{ m.id}}</strong>
+            </ng-container>
+                <!-- <h5 class="card-title ">{{ product }}</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+                 
+            </div>
+            <button class="btn btn-primary" (click)="onAdd()">Subscribe Us</button>
+        </div>
+    </div>

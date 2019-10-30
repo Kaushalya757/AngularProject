@@ -1,0 +1,33 @@
+<!-- 
+<div class="container">
+        <h4 class="pb-3">learn ngif</h4>
+
+        <label for="name"> Name</label>
+        <input type="text" class="" [(ngModel)]="serverName"> -->
+        <br>
+        <br>
+        
+        <!-- <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServe()" >Add server</button> -->
+        <!-- <p class="uppercase font-weight-bold "> Welcom New User=> {{ name }}</p>   -->
+        <!-- <p *ngif="serverCreated">Server was created {{ serverName }}</p>    
+        <div>  -->
+    
+    <!-- table -->
+    <div class="container">
+        <button class="btn-lg btn-info mb-3 " (click)="onGreeting()">Greeting to check work</button>
+        <form [formGroup]="login" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="name" formControlName="name">
+            </div>
+            <span *ngIf="!login.get('name').valid  &&  login.get('name').touched">it cannot be blank</span> 
+            <div formArrayName="skill">
+                <div class="form-group">
+                    <div *ngFor="let k of login.get('skill').controls; index as fdata">
+                        <input type="text" class="form-control mt-2" placeholder="Add skill" formControlName="{{ fdata }}">
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" (click)="onarr()">Add skill</button><br><br>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>

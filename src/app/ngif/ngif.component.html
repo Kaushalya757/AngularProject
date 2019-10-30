@@ -1,0 +1,106 @@
+<p>ngif page works</p>
+<div class="container">
+    <h1 class="uppercase"> ngif directive</h1>
+
+    <div *ngIf="isUserLogginedIn; else logout">
+        <p class="text-success">ngif is Working</p>
+    </div>
+
+    <ng-template #logout>
+        <h5 class="">You are not login</h5>
+    </ng-template>
+
+    <div *ngIf='enterName; else Not'>
+        <h4 class="text-success">you entered</h4>
+    </div>
+    <ng-template #Not>
+        <h6 class="text-danger">Not yet!</h6>
+    </ng-template>
+
+    <p *ngIf='servecreated; else noServe'>serve is created.Server name is {{ serverName }}</p>
+    <ng-template #noServe>
+        <p> No server was not created</p>
+    </ng-template>
+    <!-- question -->
+    <div *ngIf='pinCodeChd; else Wrong'>
+        <p>You dialed Chandigarh pin code</p>
+    </div>
+    <ng-template #Wrong>
+        <p> Your pin code is wrong try to enter right pin code</p>
+    </ng-template>
+    <!-- -------------------- -->
+    <hr>
+    <h1>Ngfor Directive</h1>
+    <!-- <ul>
+        <li *ngFor="let user of users"> {{ user }}</li>
+    </ul> -->
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+        </tr>
+        <!-- (let) and (of) is keyword -->
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.city }}</td>
+        </tr>
+    </table>
+
+    <!-- switchCase -->
+    <h1>switch Case</h1>
+    select country:<select (change)="choice($event.target.value)">
+        <option *ngFor="let c of countries" [value]="c.code"> {{ c.country }} </option>
+    </select>
+    {{ selectedCountry }}
+    <div [ngSwitch]="selectedCountry">
+        <div *ngSwitchCase="'IND'" class="jumbotron">
+            <h3>India country code is +91</h3>
+        </div>
+
+        <div *ngSwitchCase="'UAE'" class="jumbotron">
+            <h3>Unite Arab Emirate country code is +380</h3>
+        </div>
+
+        <div *ngSwitchCase="'UK'" class="jumbotron">
+            <h3>United kingdom country code is +45</h3>
+        </div>
+
+        <div *ngSwitchDefault class="jumbotron">
+            <h3>Select your Country</h3>
+        </div>
+    </div>
+    <!-- switchCase -->
+
+<br>
+</div>
+<!-- ---------- - -->
+
+<!-- copy  example -->
+<div class="container">
+    <h2>{{ Title }}</h2>
+        <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone No.</th>
+                    <th scope="col">Website</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let user of details'>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.website }}</td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+</div>

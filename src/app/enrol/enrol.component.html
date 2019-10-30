@@ -1,0 +1,45 @@
+<p>enrol works!</p>
+<hr>
+<div class="container ">
+    <h3 class="text-center pb-3">Enrollment Form </h3>
+    <div class="row">
+        <div class="col "></div>
+        <div class="col-8 shadow-none p-3 mb-5 bg-light rounde">
+            <form [formGroup]="myform" (ngSubmit)="formSubmission()">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" formControlName="name" autocomplete="null">
+                </div>
+                <div *ngIf="!myform.get('name').valid && myform.get('name').touched" class="text-danger">
+                    <span *ngIf="myform.get('name').errors['required']"> This field connot be blank </span>
+                    <span *ngIf="myform.get('name').errors['ownError']">
+                        {{ myform.get('name').value}}  name not allowed to use </span>
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" class="form-control" formControlName="email" autocomplete="null">
+                </div>
+                <div *ngIf="!myform.get('email').valid && myform.get('email').touched" class="text-danger">
+                    <span *ngIf="myform.get('email').errors['required']"> This field connot be blank </span>
+                    <span *ngIf="myform.get('email').errors['noEmailFound']"> 
+                        {{ myform.get('email').value }} cannot use this email address </span>
+                </div>
+                <br>
+
+                <!-- formArray -->
+                <div class="form-group" formArrayName="hobbies">
+                    <label for="">Add hobbies</label>
+                    <div *ngFor="let hob of myform.get('hobbies').controls; index as type">
+                        <input type="text" class="form-control mb-2" formControlName="{{ type }}">
+                    </div>
+                    <span *ngIf="!myform.get('hobbies').valid && myform.get('hobbies').touched" class="text-danger">it cannot be blank</span>
+                    <br>
+                    <button class="btn btn-outline-success mt-2" (click)="onAdd()">Add</button>
+                </div>
+                <button class="btn btn-outline-success" (click)="onButtonClick()">submit</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+   
+</div>
